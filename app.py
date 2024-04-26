@@ -12,7 +12,17 @@ from scripts import rag_utils
 
 from scripts import seq_clf
 
+from flask_cors import CORS
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
 app = Flask(__name__)
+
+CORS(app)
+
+app.config['DEBUG'] = os.environ.get('FLASK_DEBUG')
 
 summarizer = falcon_summ.prep_pipeline()
 

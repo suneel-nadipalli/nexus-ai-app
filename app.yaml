@@ -1,0 +1,2 @@
+runtume: python311
+entrypoint: gunicorn -b :$PORT app:app
