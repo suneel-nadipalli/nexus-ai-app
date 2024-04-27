@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'norse'; /* Specify the font family name */
+    src: url('../../static/images/fonts/norse.otf') format('truetype'); /* Path to your font file */
+}
+
+@font-face {
+    font-family: 'manu'; /* Specify the font family name */
+    src: url('../../static/images/fonts/manu.ttf') format('truetype'); /* Path to your font file */
+}
+
+
+@keyframes pixelize {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+}
+
+
+.pixelize-out {
+    animation: pixelize 1s ease forwards;
+}
+
+
+.custom-heading {
+    font-family: 'norse', sans-serif; /* Use the custom font for headings */
+}
+
+.custom-paragraph {
+    font-family: 'manu', sans-serif; /* Use the custom font for paragraphs */
+    font-size: 25px;
+}
+
+.website-title {
+    font-family: 'norse', sans-serif; /* Use the custom font */
+    font-size: 70px; /* Adjust the font size */
+    color: white; /* Set the color of the text */
+    text-align: center; /* Center-align the text */
+    margin-top: 50px; /* Add margin to the top for spacing */
+}
+
+body {
+    background-image: url("../../static/images/backgrounds/tree_bkg.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Ensure the background covers the entire viewport height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.content {
+    text-align: center; /* Center-align content */
+    position: absolute; /* Position content relative to the viewport */
+    top: 50%; /* Move content 50% from the top */
+    left: 50%; /* Move content 50% from the left */
+    transform: translate(-50%, -50%); /* Center content horizontally and vertically */
+    color: white; /* Set text color to white */
+}
+
+.btn {
+    padding: 10px 20px; /* Add padding to the button */
+    font-size: 26px; /* Set font size */
+    font-family: 'manu';
+    /* background-color: #007bff; Set button background color */
+    color: white; /* Set button text color */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    background-image: url('../../static/images/backgrounds/btn_bkg.jpg'); /* Specify background image */
+    background-size: cover; /* Make the background image cover the button */
+    background-position: center; /* Center the background image */
+    position: relative; /* Position the button relatively */
+    opacity: 0.9; /* Set button opacity */
+    background-color: rgba(0, 0, 0, 0.5); /* Set background color with opacity */
+    mix-blend-mode: multiply; 
+}
+
+.btn span {
+    position: relative;
+    z-index: 1; /* Ensure text is above the background overlay */
+}

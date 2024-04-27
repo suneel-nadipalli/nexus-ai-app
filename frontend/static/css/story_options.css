@@ -1,0 +1,136 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+    height: 100vh; 
+}
+
+.image-container {
+    width: 200px; /* Set the width of each image container */
+    margin: 10px; /* Add margin between image containers */
+    text-align: center; /* Center-align text */
+}
+
+.image-container img {
+    max-width: 100%; /* Ensure images resize while maintaining aspect ratio */
+    height: auto; /* Automatically adjust height */
+}
+
+@font-face {
+    font-family: 'norse'; /* Specify the font family name */
+    src: url('../../static/images/fonts/norse.otf') format('truetype'); /* Path to your font file */
+}
+
+@font-face {
+    font-family: 'manu'; /* Specify the font family name */
+    src: url('../../static/images/fonts/manu.ttf') format('truetype'); /* Path to your font file */
+}
+
+
+@keyframes pixelize {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+}
+
+
+.pixelize-out {
+    animation: pixelize 1s ease forwards;
+}
+
+
+.custom-heading {
+    font-family: 'norse', sans-serif; /* Use the custom font for headings */
+}
+
+.custom-paragraph {
+    font-family: 'manu', sans-serif; /* Use the custom font for paragraphs */
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
+
+.website-title {
+    font-family: 'norse', sans-serif; /* Use the custom font */
+    font-size: 70px; /* Adjust the font size */
+    color: white; /* Set the color of the text */
+    text-align: center; /* Center-align the text */
+    margin-top: 50px; /* Add margin to the top for spacing */
+    margin-bottom: 20px;
+}
+
+body {
+    background-image: url("../../static/images/backgrounds/tree_bkg.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Ensure the background covers the entire viewport height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.content {
+    text-align: center; /* Center-align content */
+    position: absolute; /* Position content relative to the viewport */
+    top: 50%; /* Move content 50% from the top */
+    left: 50%; /* Move content 50% from the left */
+    transform: translate(-50%, -50%); /* Center content horizontally and vertically */
+    color: white; /* Set text color to white */
+}
+
+.carousel {
+    position: relative;
+    width: 80%;
+    margin: -150px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Ensure carousel items are stacked vertically */
+    flex-wrap: wrap;
+    height: 100vh; 
+}
+
+.carousel-images {
+    display: flex;
+    flex-wrap: wrap; /* Wrap images into rows */
+    justify-content: space-between; /* Ensure equal spacing between images */
+}
+
+.image-container {
+    flex-basis: calc(33.33% - 20px); /* Set each image container to occupy one-third of the available space */
+    margin-bottom: 20px; /* Add some margin between image containers */
+    text-align: center; /* Center-align text */
+}
+
+.image-container img {
+    max-width: 100%; /* Ensure images resize while maintaining aspect ratio */
+    height: auto; /* Automatically adjust height */
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 1;
+    color: white; /* Set arrow color */
+}
+
+/* Adjust arrow position */
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Set text color */
+.image-container p {
+    color: white;
+    font-size: 24px; /* Adjust font size */
+    font-family: 'manu', sans-serif;
+}

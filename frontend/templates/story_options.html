@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus AI - Stories</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/story_options.css') }}">
+    <link rel="icon" type="image/x-icon" href="../static/images/favicon.ico">
+</head>
+<body>
+    <h1 class="website-title">Welcome to The Mutliverse</h1>
+    <div class="carousel">
+        <p class="custom-paragraph">Whose story do you want to rewrite today?</p>
+        <div class="carousel-images">
+            {% for image_path, label in image_label_pairs %}
+            <div class="image-container">
+                <a href="/story-sel?label={{ image_path }}">
+                    <img src="{{ image_path }}" alt="{{ label }}">
+                </a>
+                <p>{{ label }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/story_options.js') }}"></script>
+
+</body>
+</html>
