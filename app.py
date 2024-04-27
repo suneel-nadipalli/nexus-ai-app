@@ -56,17 +56,11 @@ def destination_page():
 
     name = Path(label).stem
 
-    pdf_path = f"data/pdf/{name}.pdf"
-
-    print(pdf_path)
-
-    pages = mongo_utils.get_pages(pdf_path, client)
+    pages = mongo_utils.get_pages(name, client)
 
     page_txts = [page["text"] for page in pages]
 
-    bkg_path = f"static/images/stories/{name}.jpg"
-
-    return render_template('story_sel.html', pages=page_txts, pdf_path=pdf_path, title=captitalize_name(name), bkg_path=name)
+    return render_template('story_sel.html', pages=page_txts, pdf_path=name, title=captitalize_name(name), bkg_path=name)
 
 
 @app.route('/summ', methods=['POST'])

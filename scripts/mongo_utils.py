@@ -70,8 +70,8 @@ def insert_pages(pdf_file, client=None):
     return list(pages_collection.find())
 
 
-def get_pages(pdf_file, client=None):
-    name = Path(pdf_file).stem
+def get_pages(name, client=None):
+    
 
     if not client:
         client = connect_to_mongo()
@@ -80,7 +80,7 @@ def get_pages(pdf_file, client=None):
 
     if f"{name}-pages" not in pages_db.list_collection_names():
         print("inserting pages")
-        return insert_pages(pdf_file, client=client)
+        return insert_pages(name, client=client)
     
     else:
         print("using existing page collection")
@@ -121,9 +121,8 @@ def insert_vs(pdf_file, client=None):
     
     return vector_search
 
-def get_vs(pdf_file, client=None):
-    name = Path(pdf_file).stem
-
+def get_vs(name, client=None):
+    
     if not client:
         client = connect_to_mongo()
     
@@ -131,7 +130,7 @@ def get_vs(pdf_file, client=None):
 
     if f"{name}-vs" not in vs_db.list_collection_names():
         print("inserting vs")
-        return insert_vs(pdf_file, client=client)
+        return insert_vs(name, client=client)
     
     else:
         print("using existing vs collection")
