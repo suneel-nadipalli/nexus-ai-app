@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentIndex = 0;
 
     function handleOptionSelection(selectedOption, text, pdf_path, currentIndex) {
-        const apiUrl = 'http://127.0.0.1:5000/path'
+        const apiUrl = '/path'
 
         fetch(apiUrl, {
             method: "POST",
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     function fetchOptions(text, startIndex) {
-        const apiUrl = 'http://127.0.0.1:5000/options'
+        const apiUrl = '/options'
 
         fetch(apiUrl, {
             method: "POST",
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function classifyText(text, startIndex){
 
-        const apiUrl = 'http://127.0.0.1:5000/clf';
+        const apiUrl = '/clf';
        
         // Call the summarization API
         fetch(apiUrl, {
@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Show loading spinner while API call is in progress
             paragraphElement.innerHTML = '<div class="spinner"></div>';
             
-            const apiUrl = 'http://127.0.0.1:5000/summ';
+            const apiUrl = '/summ';
             
             // Call the summarization API
             fetch(apiUrl, {
