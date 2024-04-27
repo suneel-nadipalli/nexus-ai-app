@@ -4,8 +4,6 @@ from glob import glob
 
 from pathlib import Path
 
-from scripts import falcon_summ
-
 from scripts import mongo_utils
 
 from scripts import rag_utils
@@ -23,8 +21,6 @@ app = Flask(__name__)
 CORS(app)
 
 app.config['DEBUG'] = os.environ.get('FLASK_DEBUG')
-
-summarizer = falcon_summ.prep_pipeline()
 
 client = mongo_utils.connect_to_mongo()
 
@@ -65,9 +61,13 @@ def destination_page():
 
 @app.route('/summ', methods=['POST'])
 def summarize():
+    pdf_path = request.json['pdf_path']
+
     text = request.json['text']
 
-    summary = falcon_summ.gen_summary(summarizer, text)
+    vs = mongo_utils.get_vs(pdf_path, client)
+
+    summary = rag_utils.summ(vs, text)
 
     return jsonify({'summary': summary})
 

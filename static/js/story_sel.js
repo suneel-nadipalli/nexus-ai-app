@@ -201,7 +201,8 @@ document.addEventListener("DOMContentLoaded", function() {
             fetch(apiUrl, {
                 method: "POST",
                 body: JSON.stringify({
-                    text: text
+                    text: text,
+                    pdf_path: pdf_path
                 }),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8"

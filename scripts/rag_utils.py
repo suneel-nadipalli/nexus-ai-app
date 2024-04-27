@@ -117,3 +117,19 @@ def clf_seq(vs, text):
     response = retrieval_chain.invoke(query)
 
     return output_parser.parse(response)
+
+def summ(vs, text):
+
+    retrieval_chain, output_parser = prep_config(vs)
+
+    query = f"""
+    Summarize the given text in a narrative manner as a part of storytelling.
+    The summary should be around 3-4 sentences and should be coherent with the existing story.
+
+    Return the summary as a string.
+    {text}
+     """
+
+    response = retrieval_chain.invoke(query)
+
+    return output_parser.parse(response)
