@@ -24,6 +24,8 @@ app.config['DEBUG'] = os.environ.get('FLASK_DEBUG')
 
 client = mongo_utils.connect_to_mongo()
 
+print("Connected to MongoDB")
+
 def captitalize_name(name):
     name_split = name.split("_")
 
