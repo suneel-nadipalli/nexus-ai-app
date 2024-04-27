@@ -10,11 +10,11 @@ from scripts import mongo_utils
 
 from scripts import rag_utils
 
-from scripts import seq_clf
-
 from flask_cors import CORS
 
 from dotenv import load_dotenv
+
+import os
 
 load_dotenv()
 
@@ -79,9 +79,16 @@ def summarize():
 
 @app.route('/clf', methods=['POST'])
 def classify():
+
+    pdf_path = request.json['pdf_path']
+
     text = request.json['text']
 
-    decision = seq_clf.predict(text, 'models/dec_clf/nlp.h5', 'models/dec_clf/tokenizer.pkl')
+    vs = mongo_utils.get_vs(pdf_path, client)
+    
+    text = request.json['text']
+
+    decision = rag_utils.clf_seq(vs, text).lower()
 
     return jsonify({'decision': decision})
 

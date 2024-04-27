@@ -95,3 +95,25 @@ def gen_path(vs, text, decision):
     response = retrieval_chain.invoke(query)
 
     return output_parser.parse(response)
+
+def clf_seq(vs, text):
+
+    retrieval_chain, output_parser = prep_config(vs)
+
+    query = f"""
+    Classify whether the given chunk involves a decision that will effect the story or not.
+
+    A decision is defined as when the character goes about making a choice between two or more options. 
+    The decision should be significant enough to affect the story in a major way.
+    It doesn't really involve emotions, feelings or thoughts, but what the character does, or what happens to them.
+    This involes interactions between characters, or the character and the environment.
+    What isn't a decision is chunks describing the setting, or the character's thoughts or feelings.
+
+    Return the answer as the corresponding decision label "yes" or "no"
+
+    {text}
+     """
+
+    response = retrieval_chain.invoke(query)
+
+    return output_parser.parse(response)
